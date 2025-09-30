@@ -1,0 +1,196 @@
+:root {
+    --color-primario: #2c3e50;
+    --color-secundario: #34495e;
+    --color-acento: #f1c40f;
+    --color-texto: #333;
+    --color-fondo: #f9f9f9;
+    --color-blanco: #ffffff;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-blanco);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s ease, visibility 0.75s ease;
+}
+
+#preloader img {
+    width: 100px;
+    animation: fadeInScale 1.5s ease-out infinite alternate;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+header {
+    background-color: var(--color-primario);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: var(--color-blanco);
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-acento);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.highlights-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    text-decoration: none;
+    color: var(--color-texto);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.highlight:hover {
+    transform: scale(1.05);
+}
+
+.highlight-img-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primario);
+    padding: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.highlight span {
+    font-weight: bold;
+}
+
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.proyecto-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.proyecto-card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.proyecto-card:hover img {
+    transform: scale(1.1);
+}
+
+.proyecto-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(44, 62, 80, 0.95), transparent);
+    color: var(--color-blanco);
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.proyecto-card:hover .overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background: var(--color-primario);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}

@@ -3,47 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre del Despacho | Inicio</title>
-    
+    <title>Despacho Carcon | Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gU0D6Yx/cWp0w7G6g0c0b6hB6a6B4c5E7E7e9g4c6t6a7z7a4E6w7z4E6a9a..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="index" data-preloader-time="2500">
 
     <div id="preloader">
-        <img src="img/logo-placeholder.png" alt="Cargando...">
+        <img src="img/logo-CARCOM.png" alt="Cargando...">
     </div>
 
     <header>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo-CARCOM.png" alt="Logo del Despacho Carcon">
+        </a>
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="nosotros.html">Sobre Nosotros</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
             <a href="proyectos.html">Proyectos</a>
             <a href="contacto.html">Contacto</a>
-            </nav>
+        </nav>
     </header>
 
     <main>
-
         <section id="highlights" class="animate-on-scroll">
             <h2>Proyectos Destacados</h2>
             <div class="highlights-container">
-                <a href="#" class="highlight">
+                <a href="proyectos.html" class="highlight">
                     <div class="highlight-img-container">
-                        <img src="img/arquitectos-trabajando.jpg" alt="Highlight Residencial">
+                        <img src="img/recidencial.jpg" alt="Residencial">
                     </div>
                     <span>Residencial</span>
                 </a>
-                <a href="#" class="highlight">
+                <a href="proyectos.html" class="highlight">
                     <div class="highlight-img-container">
-                        <img src="img/casa-moderna.jpg" alt="Highlight Comercial">
+                        <img src="img/comercio.png" alt="Comercial">
                     </div>
                     <span>Comercial</span>
                 </a>
-                <a href="#" class="highlight">
+                <a href="proyectos.html" class="highlight">
                     <div class="highlight-img-container">
-                        <img src="img/oficina-minimalista.jpg" alt="Highlight Corporativo">
+                        <img src="img/oficina-minimalista.jpg" alt="Jardin">
                     </div>
-                    <span>Equipo</span>
+                    <span>Jardín</span>
                 </a>
             </div>
         </section>
@@ -52,26 +54,31 @@
             <h2>Proyectos Recientes</h2>
             <div class="galeria-container">
                 <figure class="proyecto-card animate-on-scroll">
-                    <img src="img/proyecto1-placeholder.jpg" alt="Descripción del proyecto 1">
+                    <img src="img/highlighs 1.jpg" alt="Descripción del proyecto 1">
                     <figcaption class="overlay">
                         <h3>Casa Moderna</h3>
                         <p>Un diseño residencial innovador enfocado en la luz natural.</p>
                     </figcaption>
                 </figure>
                 <figure class="proyecto-card animate-on-scroll">
-                    <img src="img/proyecto2-placeholder.jpg" alt="Descripción del proyecto 2">
+                    <img src="img/highlighs 2.jpg" alt="Descripción del proyecto 2">
                     <figcaption class="overlay">
                         <h3>Oficina Corporativa</h3>
                         <p>Espacios abiertos y colaborativos para un entorno de trabajo moderno.</p>
                     </figcaption>
                 </figure>
-                </div>
+            </div>
         </section>
-
     </main>
 
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption"></div>
+    </div>
+
     <footer>
-        <p>© 2025 Nombre del Despacho. Todos los derechos reservados.</p>
+        <p>© 2025 Despacho Carcon. Todos los derechos reservados.</p>
     </footer>
 
     <script src="js/app.js"></script>

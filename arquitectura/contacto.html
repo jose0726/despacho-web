@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Despacho Carcon</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="contacto" data-preloader-time="2000">
+
+    <div id="preloader">
+        <img src="img/logo-CARCOM.png" alt="Cargando..." defer>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo-CARCOM.png" alt="Logo del Despacho Carcon">
+        </a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contacto-principal" class="animate-on-scroll">
+            <h2 class="animate-on-scroll">Ponte en Contacto</h2>
+            <p class="intro-texto animate-on-scroll">¿Tienes un proyecto en mente? Nos encantaría escucharlo. Rellena el formulario o contáctanos directamente a través de nuestros canales.</p>
+            
+            <div class="contacto-container">
+                <div class="info-contacto">
+                    <h3>Nuestra Oficina</h3>
+                    <p>Av. </p>
+                    <p>Teléfono: 5513009297</p>
+                    <p>Email: carcon.arquitectura1@gmail.com </p>
+                </div>
+                
+                <form id="formulario-contacto">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" required>
+
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" required>
+                    
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" required></textarea>
+
+                    <button type="submit">Enviar Mensaje</button>
+                    <p id="mensaje-confirmacion" class="oculto"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Despacho Carcon. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+
+</body>
+</html>

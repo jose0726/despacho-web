@@ -49,39 +49,49 @@
     transform: translateX(2px);
 }
 
-/* --- Proyectos Filtrados --- */
+    /* --- Proyectos Filtrados en lista --- */
 .proyectos-filtrados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
-    justify-items: center;
-}
-
-.proyecto-item {
-    position: relative;
-    width: 260px;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    flex-direction: column;   /* en columna */
+    gap: 2rem;                /* espacio entre proyectos */
+    margin-top: 1.5rem;
+    align-items: center;      /* centra horizontalmente */
+    }
+ .proyecto-item {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.proyecto-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  /* Estado inicial para Anime.js */
+  transform: scale(0.8) translateY(100px);
+  opacity: 0;
+  min-height: 300px;
+    will-change: transform, opacity;
 }
+ 
+
+
+ .proyecto-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
 
 .proyecto-item img {
     width: 100%;
     height: 160px;
     object-fit: cover;
     border-radius: 12px;
+    display: block;
 }
+
+/* Removed conflicting final-state rules to allow JS-driven animations to control visual entry */
+
 
 .proyecto-item .descripcion {
     padding: 0.6rem 0;
@@ -135,6 +145,41 @@
     font-weight: bold;
     cursor: pointer;
 }
+/* --- Galería dentro del modal --- */
+.modal-galeria {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* espacio entre flechas e imagen */
+  margin: 1rem 0;
+}
+
+/* Imagen dentro del modal */
+#modal-img {
+  max-width: 90%;
+  max-height: 70vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  object-fit: contain;
+}
+
+/* Botones de navegación (flechas) */
+.nav-btn {
+  background: rgba(244, 0, 0, 0.5);
+  color: rgb(255, 0, 0);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: background 0.3s;
+  user-select: none;
+}
+
+.nav-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
 
 /* --- Tooltip Imagen al pasar el cursor --- */
 .tooltip-imagen {

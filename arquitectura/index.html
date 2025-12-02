@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Despacho Carcon | Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gU0D6Yx/cWp0w7G6g0c0b6hB6a6B4c5E7E7e9g4c6t6a7z7a4E6w7z4E6a9a..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="index" data-preloader-time="2500">
+<body class="index" data-preloader-time="1000">
 
-    <div id="preloader">
-        <img src="img/logo-CARCOM.png" alt="Cargando...">
+        <div id="preloader" role="status" aria-label="Cargando" aria-live="polite">
+    <div class="preloader-logo-split">
+        <img src="img/logo-CARCOM.png" alt="CARCOM" class="logo-half logo-half--left">
+        <img src="img/logo-CARCOM.png" alt="" class="logo-half logo-half--right" aria-hidden="true">
+    </div>
     </div>
 
     <header>
@@ -29,46 +32,66 @@
         <section id="highlights" class="animate-on-scroll">
             <h2>Proyectos Destacados</h2>
             <div class="highlights-container">
-                <a href="proyectos.html" class="highlight">
+                <a href="proyectos.html?categoria=Habitacional" class="highlight">
                     <div class="highlight-img-container">
-                        <img src="img/recidencial.jpg" alt="Residencial">
+                        <img src="img/recidencial.jpg" alt="Habitacional">
                     </div>
-                    <span>Residencial</span>
+                    <span>Habitacional</span>
                 </a>
-                <a href="proyectos.html" class="highlight">
+
+                <a href="proyectos.html?categoria=Comercial" class="highlight">
                     <div class="highlight-img-container">
                         <img src="img/comercio.png" alt="Comercial">
                     </div>
                     <span>Comercial</span>
                 </a>
-                <a href="proyectos.html" class="highlight">
+
+               <a href="proyectos.html?sub=Paisajismo" class="highlight">
+
                     <div class="highlight-img-container">
-                        <img src="img/oficina-minimalista.jpg" alt="Jardin">
+                        <img src="img/oficina-minimalista.jpg" alt="Paisajismo">
                     </div>
-                    <span>Jardín</span>
+                    <span>Paisajismo</span>
                 </a>
+
+               <a href="proyectos.html?sub=Interiorismo" class="highlight">
+
+                    <div class="highlight-img-container">
+                        <img src="img/oficina-minimalista.jpg" alt="Interiorismo">
+                    </div>
+                    <span>Interiorismo</span>
+                </a>
+
             </div>
         </section>
 
         <section id="proyectos-galeria" class="animate-on-scroll">
             <h2>Proyectos Recientes</h2>
-            <div class="galeria-container">
+
+            <div class="proyecto fila-derecha">
+                <div class="descripcion">
+                    <h3>casa moderna</h3>
+                    <p>Un diseño residencial innovador enfocado en la luz natural</p>
+                </div>
                 <figure class="proyecto-card animate-on-scroll">
-                    <img src="img/highlighs 1.jpg" alt="Descripción del proyecto 1">
-                    <figcaption class="overlay">
-                        <h3>Casa Moderna</h3>
-                        <p>Un diseño residencial innovador enfocado en la luz natural.</p>
-                    </figcaption>
-                </figure>
-                <figure class="proyecto-card animate-on-scroll">
-                    <img src="img/highlighs 2.jpg" alt="Descripción del proyecto 2">
-                    <figcaption class="overlay">
-                        <h3>Oficina Corporativa</h3>
-                        <p>Espacios abiertos y colaborativos para un entorno de trabajo moderno.</p>
-                    </figcaption>
+                    <img src="img/highlighs 1.jpg" alt="casa espectacular">
                 </figure>
             </div>
+        
+            <div class="proyecto fila-izquierda">
+                <figure class="proyecto-card animate-on-scroll">
+                    <img src="img/highlighs 2.jpg" alt="casa enfocada en la comodidad">
+                </figure>
+                <div class="descripcion">
+                    <h3>oficinas corporativas</h3>
+                    <p>espacios abiertos y colaborativos para un entorno de trabajo moderni</p>
+                </div>
+            </div>
         </section>
+
+
+
+        
     </main>
 
     <div id="imageModal" class="modal">
@@ -81,7 +104,7 @@
         <p>© 2025 Despacho Carcon. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/app.js" defer></script>
 
 </body>
 </html>

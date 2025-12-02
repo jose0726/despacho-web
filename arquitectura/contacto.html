@@ -6,10 +6,13 @@
     <title>Contacto | Despacho Carcon</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="contacto" data-preloader-time="2000">
+<body class="contacto" data-preloader-time="250">
 
-    <div id="preloader">
-        <img src="img/logo-CARCOM.png" alt="Cargando..." defer>
+       <div id="preloader" role="status" aria-label="Cargando" aria-live="polite">
+    <div class="preloader-logo-split">
+        <img src="img/logo-CARCOM.png" alt="CARCOM" class="logo-half logo-half--left">
+        <img src="img/logo-CARCOM.png" alt="" class="logo-half logo-half--right" aria-hidden="true">
+    </div>
     </div>
 
     <header>
@@ -24,35 +27,51 @@
         </nav>
     </header>
 
-    <main>
-        <section id="contacto-principal" class="animate-on-scroll">
-            <h2 class="animate-on-scroll">Ponte en Contacto</h2>
-            <p class="intro-texto animate-on-scroll">¿Tienes un proyecto en mente? Nos encantaría escucharlo. Rellena el formulario o contáctanos directamente a través de nuestros canales.</p>
-            
-            <div class="contacto-container">
-                <div class="info-contacto">
-                    <h3>Nuestra Oficina</h3>
-                    <p>Av. </p>
-                    <p>Teléfono: 5513009297</p>
-                    <p>Email: carcon.arquitectura1@gmail.com </p>
-                </div>
-                
-                <form id="formulario-contacto">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" required>
+   <main>
+    <section id="contacto-principal" class="animate-on-scroll">
+        <h2 class="animate-on-scroll">Ponte en Contacto</h2>
+        <p class="intro-texto animate-on-scroll">
+            ¿Tienes un proyecto en mente? Nos encantaría escucharlo. 
+            Rellena el formulario o contáctanos directamente a través de nuestros canales.
+        </p>
+    <div class="contacto-container">
+    <!-- Columna izquierda -->
+    <div class="info-contacto">
+        <h3>Nuestra Oficina</h3>
+        <p>Tule 20, Valle Verde, 56577 Ixtapaluca, Estado de México</p>
+        <p>Teléfono: 5513009297</p>
+        <p>Email: carcon.arquitectura1@gmail.com</p>
 
-                    <label for="correo">Correo Electrónico</label>
-                    <input type="email" id="correo" required>
-                    
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" required></textarea>
+        <!-- Mapa debajo de la info -->
+        <div class="mapa">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d279.86210545766374!2d-98.9129237856261!3d19.310150035447133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce1e64b7b07fb7%3A0xd773cedf8d8ad619!2sTule%2020%2C%20Valle%20Verde%2C%2056577%20Ixtapaluca%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1761253318103!5m2!1ses!2smx" 
+                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
 
-                    <button type="submit">Enviar Mensaje</button>
-                    <p id="mensaje-confirmacion" class="oculto"></p>
-                </form>
-            </div>
-        </section>
-    </main>
+    <!-- Columna derecha -->
+    <form id="formulario-contacto">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="correo">Correo Electrónico</label>
+        <input type="email" id="correo" name="correo" required>
+        
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <!-- Honeypot anti-spam (oculto para usuarios reales) -->
+        <input type="text" name="hp" id="hp" style="display:none" tabindex="-1" autocomplete="off">
+
+        <button type="submit">Enviar Mensaje</button>
+        <p id="mensaje-confirmacion" class="oculto" aria-live="polite"></p>
+    </form>
+</div>    
+       
+</main>
 
     <footer>
         <p>© 2025 Despacho Carcon. Todos los derechos reservados.</p>

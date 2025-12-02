@@ -39,37 +39,81 @@ textarea:focus-visible {
     border-radius: 4px;
 }
 
-/* --- Preloader --- */
+/* --- Preloader: logo dividido en dos mitades --- */
+/* --- Preloader: logo dividido en dos mitades --- */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 9999;
-    background-color: var(--color-claro);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    opacity: 1;
-    visibility: visible;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-claro);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
 }
 
-#preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
+.preloader-logo-split {
+  position: relative;
+  width: min(720px, 72vw);
+  max-width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  pointer-events: none;
 }
 
-#preloader img {
-    width: 150px;
-    animation: simple-pulse 1.8s ease-in-out infinite;
+/* imagen base: ocupan el mismo espacio; usaremos clip-path para mostrar solo mitad */
+.logo-half {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+  transition: transform 360ms cubic-bezier(.2,.8,.2,1), opacity 320ms ease;
+  display: block;
 }
 
-@keyframes simple-pulse {
-    0%, 100% { transform: scale(0.95); opacity: 0.7; }
-    50% { transform: scale(1.05); opacity: 1; }
+/* recortes: izquierda muestra la mitad izquierda, derecha la mitad derecha */
+.logo-half--left { clip-path: inset(0 50% 0 0); transform: translateX(-120%); }
+.logo-half--right { clip-path: inset(0 0 0 50%); transform: translateX(120%); }
+
+/* estados controlados por JS */
+#preloader.state-logo-in .logo-half--left { transform: translateX(-18%); }
+#preloader.state-logo-in .logo-half--right { transform: translateX(18%); }
+
+#preloader.state-logo-collision .logo-half--left { animation: logo-bump-left 240ms ease forwards; }
+#preloader.state-logo-collision .logo-half--right { animation: logo-bump-right 240ms ease forwards; }
+
+#preloader.state-logo-joined .logo-half--left,
+#preloader.state-logo-joined .logo-half--right {
+  transform: translateX(0); opacity: 1;
 }
+
+/* salida (fade y scale ligero) */
+#preloader.state-fadeout { opacity: 0; visibility: hidden; }
+
+/* micro-animaciones */
+@keyframes logo-bump-left {
+  0% { transform: translateX(-18%); }
+  50% { transform: translateX(6%); }
+  100% { transform: translateX(0); }
+}
+@keyframes logo-bump-right {
+  0% { transform: translateX(18%); }
+  50% { transform: translateX(-6%); }
+  100% { transform: translateX(0); }
+}
+
+/* fallback ocultado final */
+#preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+body.preloader-active { overflow: hidden; }
 
 /* --- Header --- */
 header {
@@ -180,12 +224,11 @@ section h2 {
 }
 
 .proyecto-card img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 16 / 9;
-    transition: transform 0.4s ease;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* más cuadrada que 16/9 */
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
 }
 
 .proyecto-card:hover img {
@@ -374,8 +417,15 @@ footer {
         justify-content: center;
     }
 }
-/*borra
+
 /* --- Sobre Nosotros --- */
+
+#quienes-somos {
+    text-align: center;
+    max-width: 800px; /* opcional: limita el ancho para que no se vea demasiado largo */
+    margin: 0 auto;   /* centra el bloque dentro del contenedor */
+}
+
 .sobre-nosotros #mision-vision {
     display: flex;
     flex-wrap: wrap;
@@ -464,4 +514,282 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* --- Proyectos Recientes (layout alternado) --- */
+.proyecto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.fila-derecha .descripcion { order: 1; }
+.fila-derecha .proyecto-card { order: 2; }
+
+.fila-izquierda .proyecto-card { order: 1; }
+.fila-izquierda .descripcion { order: 2; }
+
+@media (max-width: 768px) {
+  .proyecto {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* --- Responsive para proyectos --- */
+@media (max-width: 768px) {
+  .proyecto {
+    grid-template-columns: 1fr; /* en móvil, una sola columna */
+    text-align: center;         /* centra el texto */
+  }
+
+  .proyecto-card img {
+    height: 250px; /* opcional: más bajitas en móvil */
+  }
+}
+/* --- Responsive Header --- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;   /* logo arriba, menú abajo */
+    align-items: center;
+    padding: 1rem;
+  }
+
+  header nav {
+    flex-direction: column;   /* menú en columna */
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  header nav a {
+    font-size: 1.1rem;
+  }
+}
+#mapa-ubicacion {
+  margin: 3rem auto;
+  text-align: center;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+#mapa-ubicacion h2 {
+  margin-bottom: 1rem;
+}
+
+.mapa {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.info-contacto .mapa {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.info-contacto .mapa iframe {
+  width: 100%;
+  height: 200px; /* ajusta según prefieras */
+  border: 0;
+}
+/* ==========================
+   SECCIÓN: NUESTRO EQUIPO
+========================== */
+#equipo {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #f9f9f9;
+}
+
+#equipo h2 {
+    color: var(--color-secundario);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#equipo .intro-texto {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Arquitectos principales */
+.equipo-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.miembro-principal {
+    text-align: center;
+    width: 250px;
+}
+
+.miembro-principal img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.miembro-principal img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.miembro-principal h4 {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-secundario);
+}
+
+.miembro-principal p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Equipo secundario */
+.equipo-secundario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.miembro {
+    text-align: center;
+}
+
+.miembro img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.miembro img:hover {
+    transform: scale(1.08);
+}
+
+.miembro h5 {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Animación de despliegue para el equipo secundario */
+.equipo-secundario {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.equipo-secundario.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.miembro {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.miembro.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ocultar equipo secundario al inicio */
+.equipo-secundario {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* Cuando se activa la animación */
+.equipo-secundario.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación escalonada para cada miembro */
+.miembro {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.miembro.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*prueba*/
+
+/* Sección de pruebas tipográficas */
+#pruebas-fuentes {
+  background: #f7f7f7;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#pruebas-fuentes h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.fuente {
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 700px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.fuente h3 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+/* Estilos individuales de cada prueba */
+.fuente.moderno {
+  font-family: 'Montserrat', sans-serif;
+  border-left: 5px solid #00adb5;
+}
+
+.fuente.formal {
+  font-family: 'Merriweather', serif;
+  border-left: 5px solid #6c757d;
+}
+
+.fuente.elegante {
+  font-family: 'Playfair Display', serif;
+  border-left: 5px solid #b85c38;
+}
+
+.fuente.neutra {
+  font-family: 'Lato', sans-serif;
+  border-left: 10px solid #495057;
+}
+
+.fuente.creativa {
+  font-family: 'Raleway', sans-serif;
+  border-left: 5px solid #e63946;
+}
+
+
+
+
 

@@ -1,0 +1,11 @@
+# Node / dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Entornos y secretos
+.env
+
+# Datos locales del formulario
+data/

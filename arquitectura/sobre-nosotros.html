@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Despacho Carcon | Sobre Nosotros</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gU0D6Yx/cWp0w7G6g0c0b6hB6a6B4c5E7E7e9g4c6t6a7z7a4E6w7z4E6a9a..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body class="sobre-nosotros" data-preloader-time="3000">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    <div id="preloader">
-        <img src="img/logo-CARCOM.png" alt="Cargando...">
+</head>
+<body class="sobre-nosotros" data-preloader-time="500">
+
+        <div id="preloader" role="status" aria-label="Cargando" aria-live="polite">
+    <div class="preloader-logo-split">
+        <img src="img/logo-CARCOM.png" alt="CARCOM" class="logo-half logo-half--left">
+        <img src="img/logo-CARCOM.png" alt="" class="logo-half logo-half--right" aria-hidden="true">
+    </div>
     </div>
 
     <header>
@@ -31,6 +36,54 @@
             <p class="intro-texto">
                 Somos un colectivo de arquitectura dedicado al diseño arquitectónico, proyección, construcción y avaluó de inmuebles apasionados por el diseño del entorno humano habitable en sus diferentes etapas productivas.
             </p>
+
+        </section>
+                <!-- ==========================
+             SECCIÓN: NUESTRO EQUIPO
+        =========================== -->
+        <section id="equipo" class="animate-on-scroll">
+            <h2>Nuestro Equipo</h2>
+            <p class="intro-texto">
+                Conoce a las mentes detrás de Despacho Carcon: un grupo de profesionales apasionados por el diseño arquitectónico, la innovación y la excelencia en cada proyecto.
+            </p>
+
+            <!-- 🧑‍🎓 Arquitectos Principales -->
+            <div class="equipo-principal">
+                <div class="miembro-principal">
+                    <img src="img/arquitecto1.jpg" alt="Arq. Principal 1">
+                    <h4>Arq. Juan Pérez</h4>
+                    <p>Director de Proyectos</p>
+                </div>
+                <div class="miembro-principal">
+                    <img src="img/arquitecto2.jpg" alt="Arq. Principal 2">
+                    <h4>Arq. María López</h4>
+                    <p>Directora Creativa</p>
+                </div>
+            </div>
+
+            <!-- 👷‍♂️ Resto del equipo -->
+            <div class="equipo-secundario">
+                <div class="miembro">
+                    <img src="img/equipo1.jpg" alt="Miembro del equipo">
+                    <h5>Arq. Daniel Ruiz</h5>
+                </div>
+                <div class="miembro">
+                    <img src="img/equipo2.jpg" alt="Miembro del equipo">
+                    <h5>Arq. Laura Méndez</h5>
+                </div>
+                <div class="miembro">
+                    <img src="img/equipo3.jpg" alt="Miembro del equipo">
+                    <h5>Diseñador: Carlos Vega</h5>
+                </div>
+                <div class="miembro">
+                    <img src="img/equipo4.jpg" alt="Miembro del equipo">
+                    <h5>Ing. Civil: Sofía Torres</h5>
+                </div>
+                <div class="miembro">
+                    <img src="img/equipo5.jpg" alt="Miembro del equipo">
+                    <h5>Asistente Técnico: Luis Romero</h5>
+                </div>
+            </div>
         </section>
 
         <section id="mision-vision" class="animate-on-scroll">
@@ -108,13 +161,27 @@
                 <li><i class="fas fa-check-circle"></i> **Atención al Cliente:** Escuchar activamente las necesidades del cliente y garantizar respuestas oportunas y soluciones personalizadas.</li>
             </ul>
         </section>
+       
+        <section id="ubicacion" class="animate-on-scroll">
+            <h2>Ubicación</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Tule 20, Valle Verde, 56577 Ixtapaluca, Estado de México</p>
+    
+            <div class="mapa">
+               <iframe 
+                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d279.86210545766374!2d-98.9129237856261!3d19.310150035447133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce1e64b7b07fb7%3A0xd773cedf8d8ad619!2sTule%2020%2C%20Valle%20Verde%2C%2056577%20Ixtapaluca%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1761253318103!5m2!1ses!2smx" 
+                   width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" 
+                   referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        
+
     </main>
 
     <footer>
         <p>© 2025 Despacho Carcon. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/app.js" defer></script>
 
 </body>
 </html>

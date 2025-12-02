@@ -9,8 +9,11 @@
 </head>
 <body class="proyectos" data-preloader-time="1500">
 
-    <div id="preloader">
-        <img src="img/logo-CARCOM.png" alt="Cargando...">
+       <div id="preloader" role="status" aria-label="Cargando" aria-live="polite">
+    <div class="preloader-logo-split">
+        <img src="img/logo-CARCOM.png" alt="CARCOM" class="logo-half logo-half--left">
+        <img src="img/logo-CARCOM.png" alt="" class="logo-half logo-half--right" aria-hidden="true">
+    </div>
     </div>
 
     <header>
@@ -29,24 +32,26 @@
     <div class="proyectos-panel">
         <!-- Categorías -->
         <div class="categoria">
-            <button class="categoria-btn">Comercial</button>
+            <button class="categoria-btn" aria-expanded="false">Comercial</button>
             <div class="subcategoria-container">
                 <button class="subcategoria-btn">Tiendas</button>
                 <button class="subcategoria-btn">Bares</button>
-                <button class="subcategoria-btn">Restaurantes</button>
+                <button class="subcategoria-btn">Restaurantes</button>  
                 <button class="subcategoria-btn">Oficinas</button>
-                <button class="subcategoria-btn">clinicas</button>
+                <button class="subcategoria-btn">Clinicas</button>
                 <button class="subcategoria-btn">Bodegas</button>
             </div>
         </div>
 
         <div class="categoria">
-            <button class="categoria-btn">Habitacional</button>
+            <button class="categoria-btn" aria-expanded="false">Habitacional</button>
             <div class="subcategoria-container">
-                <button class="subcategoria-btn">interes-social</button>
-                <button class="subcategoria-btn">interes-medio</button>
-                <button class="subcategoria-btn">residencial/interes-alto</button>
-                <button class="subcategoria-btn">edificios</button>
+                <button class="subcategoria-btn">Interes social</button>
+                <button class="subcategoria-btn">Interes medio</button>
+                <button class="subcategoria-btn">interes alto</button>
+                <button class="subcategoria-btn">Multifamiliar</button>
+                <button class="subcategoria-btn">Interiorismo</button>
+                <button class="subcategoria-btn">Paisajismo</button>             
             </div>
         </div>
 
@@ -63,9 +68,9 @@
     <footer>
         <p>© 2025 Despacho Carcon. Todos los derechos reservados.</p>
     </footer>
-
-    <script src="js/app.js" defer></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="js/app.js" defer></script>
     <script src="js/proyectos.js" defer></script>
 </body>
 </html>

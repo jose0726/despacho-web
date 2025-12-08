@@ -143,17 +143,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const imagenModal = document.getElementById("modalImage");
         const botonCerrar = document.querySelector(".close-modal");
 
-        const cerrarModal = () => modal.style.display = "none";
+    const cerrarModal = () => modal.style.display = "none";
 
-  document.querySelectorAll('.proyecto-card img, .highlight-img-container img, .proyecto-item img').forEach(imagen => {
+  // Importante: excluimos imágenes de highlights para que no abran el modal.
+  // El modal debe abrirse solo para imágenes de proyectos (cards/lista filtrada).
+  document.querySelectorAll('.proyecto-card img, .proyecto-item img').forEach(imagen => {
             imagen.addEventListener('click', () => {
                 modal.style.display = "flex";
                 imagenModal.src = imagen.src;
                 imagenModal.alt = imagen.alt;
             });
 
-            imagen.addEventListener('mouseenter', () => imagen.style.transform = 'scale(1.05)');
-            imagen.addEventListener('mouseleave', () => imagen.style.transform = 'scale(1)');
+      // Sólo efecto hover para imágenes de proyectos, no para highlights
+      imagen.addEventListener('mouseenter', () => imagen.style.transform = 'scale(1.05)');
+      imagen.addEventListener('mouseleave', () => imagen.style.transform = 'scale(1)');
         });
 
         if (botonCerrar) botonCerrar.addEventListener('click', cerrarModal);
